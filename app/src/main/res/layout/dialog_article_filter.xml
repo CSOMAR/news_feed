@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RadioGroup
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:gravity="center"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <RadioButton
+        android:id="@+id/todayRadioButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/most_popular_articles_today"
+        android:textSize="15sp"
+        android:textColor="@color/colorAccent"
+        android:maxLines="3"
+        android:buttonTint="@color/colorAccent" />
+
+    <RadioButton
+        android:id="@+id/lastWeekRadioButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/most_popular_articles_last_week"
+        android:textSize="15sp"
+        android:textColor="@color/colorAccent"
+        android:maxLines="3"
+        android:buttonTint="@color/colorAccent" />
+
+</RadioGroup>

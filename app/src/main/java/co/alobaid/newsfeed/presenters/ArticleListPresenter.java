@@ -5,21 +5,17 @@ import java.util.List;
 import co.alobaid.newsfeed.models.Media;
 import co.alobaid.newsfeed.models.MostPopularArticlesResponse;
 import co.alobaid.newsfeed.restful_services.Builder;
-import co.alobaid.newsfeed.views.interfaces.ArticlesListInterface;
+import co.alobaid.newsfeed.views.interfaces.ArticleListInterface;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ArticlesListPresenter extends BasePresenter<ArticlesListInterface> implements Callback<MostPopularArticlesResponse> {
+public class ArticleListPresenter extends BasePresenter<ArticleListInterface> implements Callback<MostPopularArticlesResponse> {
 
-    public void getMostPopularArticlesToday() {
-        getFragmentInterface().showLoading();
-        Builder.getRestfulServices().getMostPopularArticlesToday().enqueue(this);
-    }
+    private Builder builder;
 
-    public void getMostPopularArticlesLastWeek() {
-        getFragmentInterface().showLoading();
-        Builder.getRestfulServices().getMostPopularArticlesLastWeek().enqueue(this);
+    public ArticleListPresenter() {
+        builder = new Builder();
     }
 
     public boolean isValidMedia(List<Media> media) {
@@ -44,6 +40,16 @@ public class ArticlesListPresenter extends BasePresenter<ArticlesListInterface> 
 
     public boolean isValidString(String s) {
         return s != null && !s.isEmpty();
+    }
+
+    public void getMostPopularArticlesToday() {
+        getFragmentInterface().showLoading();
+        builder.getRestfulServices().getMostPopularArticlesToday().enqueue(this);
+    }
+
+    public void getMostPopularArticlesLastWeek() {
+        getFragmentInterface().showLoading();
+        builder.getRestfulServices().getMostPopularArticlesLastWeek().enqueue(this);
     }
 
     @Override

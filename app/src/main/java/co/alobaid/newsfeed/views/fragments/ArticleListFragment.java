@@ -9,9 +9,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -24,11 +21,9 @@ import co.alobaid.newsfeed.R;
 import co.alobaid.newsfeed.models.Article;
 import co.alobaid.newsfeed.presenters.ArticleListPresenter;
 import co.alobaid.newsfeed.views.adapters.ArticleListAdapter;
-import co.alobaid.newsfeed.views.interfaces.ArticlesListInterface;
+import co.alobaid.newsfeed.views.interfaces.ArticleListInterface;
 
-public class ArticlesListFragment extends BaseFragment<ArticleListPresenter> implements ArticlesListInterface {
-
-    // add later swipe 2 refresh with hint
+public class ArticleListFragment extends BaseFragment<ArticleListPresenter> implements ArticleListInterface {
 
     private RecyclerView recyclerView;
 
@@ -41,7 +36,6 @@ public class ArticlesListFragment extends BaseFragment<ArticleListPresenter> imp
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
         filterType = ArticleFilterType.TODAY;
     }
 
@@ -79,11 +73,10 @@ public class ArticlesListFragment extends BaseFragment<ArticleListPresenter> imp
         RadioButton todayRadioButton = view.findViewById(R.id.todayRadioButton);
         RadioButton lastWeekRadioButton = view.findViewById(R.id.lastWeekRadioButton);
 
-        if (filterType == ArticleFilterType.TODAY) {
+        if (filterType == ArticleFilterType.TODAY)
             todayRadioButton.setChecked(true);
-        } else if (filterType == ArticleFilterType.LAST_WEEK) {
+        else if (filterType == ArticleFilterType.LAST_WEEK)
             lastWeekRadioButton.setChecked(true);
-        }
 
         todayRadioButton.setOnClickListener(v -> {
             filterType = ArticleFilterType.TODAY;
@@ -103,35 +96,12 @@ public class ArticlesListFragment extends BaseFragment<ArticleListPresenter> imp
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onResume() {
+        super.onResume();
         if (filterType == ArticleFilterType.TODAY)
             presenter.getMostPopularArticlesToday();
         else if (filterType == ArticleFilterType.LAST_WEEK)
             presenter.getMostPopularArticlesLastWeek();
-    }
-
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        if (filterType == ArticleFilterType.TODAY)
-//            presenter.getMostPopularArticlesToday();
-//        else if (filterType == ArticleFilterType.LAST_WEEK)
-//            presenter.getMostPopularArticlesLastWeek();
-//    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.article_list_menu, menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.searchButton) {
-
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

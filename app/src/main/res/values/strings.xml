@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">News Feed</string>
+    <string name="most_popular_articles_today">Most Popular Articles Today</string>
+    <string name="most_popular_articles_last_week">Most Popular Articles Last Week</string>
 </resources>

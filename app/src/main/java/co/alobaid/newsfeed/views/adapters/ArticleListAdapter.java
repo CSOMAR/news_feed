@@ -22,13 +22,13 @@ import co.alobaid.newsfeed.views.fragments.BaseFragment;
 
 import static co.alobaid.newsfeed.helper.Constants.ARTICLE;
 
-public class ArticlesListAdapter extends RecyclerView.Adapter<ArticlesListAdapter.ViewHolder> {
+public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.ViewHolder> {
 
     private List<Article> articles;
     private BaseFragment.FragmentInterface fragmentInterface;
     private ArticleListPresenter presenter;
 
-    public ArticlesListAdapter(List<Article> articles, BaseFragment.FragmentInterface fragmentInterface, ArticleListPresenter presenter) {
+    public ArticleListAdapter(List<Article> articles, BaseFragment.FragmentInterface fragmentInterface, ArticleListPresenter presenter) {
         this.articles = articles;
         this.fragmentInterface = fragmentInterface;
         this.presenter = presenter;

@@ -8,7 +8,7 @@
     <com.wang.avi.AVLoadingIndicatorView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:indicatorName="BallScaleMultipleIndicator"
+        app:indicatorName="BallPulseIndicator"
         app:indicatorColor="@color/colorAccent" />
 
 </LinearLayout>

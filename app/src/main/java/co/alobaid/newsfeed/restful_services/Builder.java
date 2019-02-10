@@ -1,4 +1,4 @@
-package co.alobaid.newsfeed.restful_web_services;
+package co.alobaid.newsfeed.restful_services;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -24,7 +24,7 @@ public class Builder {
         restfulServices = retrofit2.create(RestfulServices.class);
     }
 
-    public static RestfulServices getRestfulServices() {
+    public RestfulServices getRestfulServices() {
         return restfulServices;
     }
 
