@@ -25,7 +25,9 @@ Build:
 
 Test:
 - Open and run the following class for unit test:
-/NewsFeed/app/src/test/java/co/alobaid/newsfeed/ArticleTest.java
+
+  `./app/src/test/java/co/alobaid/newsfeed/ArticleTest.java`
 
 - Open and run the following class for UI test:
-/NewsFeed/app/src/androidTest/java/co/alobaid/newsfeed/ArticleDetailsTest.java
+
+  `./app/src/androidTest/java/co/alobaid/newsfeed/ArticleDetailsTest.java`
